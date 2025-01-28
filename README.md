@@ -15,11 +15,9 @@
 **/
 
 #include <iostream>
-
-    class CameraSizer // Создаем класс
-    {
-     public:
-
+class CameraSizer // Создаем класс
+{
+    public:
     CameraSizer() : D(1.0/0.035) {} //конструктор по условию фокусное расстояние по умолчанию 35мм
     CameraSizer(double d) : D(d) {}  // Когда вызываем контруктор вызывает первый
     // Публичная функция
@@ -30,26 +28,26 @@
         return ((d * F) / (d - F)); // расстояние от объектива
     }
 
-    private: double D; //непубличный элемент D для хранения (приватный элемент)
+   private: double D; //непубличный элемент D для хранения (приватный элемент)
     };
 
-    int main()
+   int main()
     {
     double d;
     std::cout << "D = "; // Ввод элемента с клавиатуры
     if (!(std::cin >> d)) return 1; // Если не число; то вернуть 1, показать ОШИБКА
 
-    CameraSizer def; // Переменная этого типа
-    CameraSizer user(d);
+   CameraSizer def; // Переменная этого типа
+   CameraSizer user(d);
 
-    const double defFF = 2.0 / def.ReadD();
-    const double userFF = 2.0 / user.ReadD();
-    while (true)
-    {
-       std::cout << "d = ";
-        // если d не число, то вернет значение 2
+   const double defFF = 2.0 / def.ReadD();
+   const double userFF = 2.0 / user.ReadD();
+   while (true)
+   {
+     std::cout << "d = ";
+     // если d не число, то вернет значение 2
 
-        if (d < defFF || d < userFF)
+   if (d < defFF || d < userFF)
          {
             std::cout << "oshibka";
         }
